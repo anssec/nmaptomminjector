@@ -43,7 +43,7 @@ This tool bridges all three:
 
 ---
 
-## Extra test cases — JSON format
+## Extra test cases JSON format
 
 You can extend the built-in test case library by uploading a JSON file:
 

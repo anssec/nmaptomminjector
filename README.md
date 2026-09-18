@@ -10,10 +10,10 @@ During a VAPT engagement we end up with Nmap text output, a Nessus report, and a
 This tool bridges all three:
 
 1. **Parses your Nmap output and/or Nessus export** (`.nessus` XML or `.csv`).
-2. **Correlates ports per IP** — if the same port appears in both tools, it is added only once. Nmap's richer state info (`open`, `filtered`, etc.) takes priority.
+2. **Correlates ports per IP** if the same port appears in both tools, it is added only once. Nmap's richer state info (`open`, `filtered`, etc.) takes priority.
 3. **Injects unique ports** as colour-coded child nodes directly under the matching IP node in your FreeMind map.
-4. **Optionally annotates each port** with a pre-built library of VAPT test cases — scripts to run, CVEs to check, common misconfigurations — so every tester starts from the same checklist.
-5. **Never overwrites your source map** — output goes to a new `*_enriched.mm` file by default, and any existing output gets a timestamped backup before it is replaced.
+4. **Optionally annotates each port** with a pre-built library of VAPT test cases scripts to run, CVEs to check, common misconfigurations so every tester starts from the same checklist.
+5. **Never overwrites your source map** output goes to a new `*_enriched.mm` file by default, and any existing output gets a timestamped backup before it is replaced.
 
 ---
 
@@ -28,18 +28,18 @@ This tool bridges all three:
 | VAPT test cases | Built-in database of 40+ ports with ready-to-use test scripts |
 | Custom test cases | Upload your own JSON file to extend the database at runtime |
 | Safe re-runs | Already-present port nodes are detected and skipped |
-| Portable | Single .exe — no Python, pip, or Nmap needed on the target machine |
+| Portable | Single .exe no Python, pip, or Nmap needed on the target machine |
 
 ---
 
 ## How to use it
 
 1. Run `NmapMindmap.exe` (no installation needed).
-2. Tick which scan sources you have — Nmap, Nessus, or both.
+2. Tick which scan sources you have Nmap, Nessus, or both.
 3. Browse to your scan file(s) and your source FreeMind `.mm` map.
 4. (Optional) Untick **Add VAPT test cases** if you want ports only.
 5. (Optional) Click **Upload extra test cases (JSON)** to load your own checks.
-6. Click **Run Injection** — the enriched map is saved and the output folder opens.
+6. Click **Run Injection** the enriched map is saved and the output folder opens.
 
 ---
 
@@ -83,9 +83,7 @@ Each entry is either a plain string (leaf node) or `["Parent label", ["child 1",
      Output              : 23 IPs Firewall - PT_enriched.mm
 `
 
-Open the `.mm` file in FreeMind — every IP node now has its ports as child nodes,
+Open the `.mm` file in FreeMind every IP node now has its ports as child nodes,
 each colour-coded by state, each with a folded **Test Cases** subtree ready to work through.
 
 ---
-
-*Built for internal VAPT use. Runs entirely offline — no data leaves the machine.*

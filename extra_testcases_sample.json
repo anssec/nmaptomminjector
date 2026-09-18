@@ -1,0 +1,32 @@
+{
+    "_comment": "Upload this file via the 'Upload extra test cases' button to add custom entries.",
+    "_format": "Top-level keys must be 'tcp' or 'udp'. Port numbers are string keys. Each test case is a string (leaf node) or [\"Parent\", [\"child1\", \"child2\"]] (nested node).",
+    "tcp": {
+        "8080": [
+            "HTTP alternative port check",
+            "Directory brute-force (gobuster/dirbuster)",
+            ["Possible admin panels", ["/manager/html", "/phpmyadmin", "/admin"]],
+            "Test for default credentials"
+        ],
+        "9200": [
+            "Elasticsearch info disclosure (/_cat/indices)",
+            "Check for unauthenticated access",
+            "Cluster health: GET /_cluster/health",
+            ["CVE", ["CVE-2021-22145", "CVE-2020-7014"]]
+        ],
+        "27017": [
+            "MongoDB unauthenticated access check",
+            "mongo --host <IP> (no password prompt?)",
+            "List databases: show dbs",
+            "Check bind-all-interfaces misconfiguration"
+        ]
+    },
+    "udp": {
+        "161": [
+            "SNMP walk v1/v2c: snmpwalk -v2c -c public <IP>",
+            "Community string brute-force: onesixtyone",
+            "Check for writable community strings",
+            ["Common community strings", ["public", "private", "community", "manager"]]
+        ]
+    }
+}

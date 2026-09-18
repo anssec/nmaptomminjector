@@ -1,6 +1,6 @@
 # Nmap MindMap Injector
 
-**A portable Windows tool that turns raw Nmap and Nessus scan results into an enriched FreeMind mind map — in one click, no Python or setup required.**
+**A portable Windows tool that turns raw Nmap and Nessus scan results into an enriched FreeMind mind map in one click, no Python or setup required.**
 
 ---
 
